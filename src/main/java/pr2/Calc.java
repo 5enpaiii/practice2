@@ -1,5 +1,5 @@
 package pr2;
-
+import pr22.DivByZeroException;
 public class Calc {
     public static void main(String[] args) {
         int a=12;
@@ -14,16 +14,21 @@ public class Calc {
         System.out.println(div(a,b));
     }
 
-    private static int add(int a, int b) {
+    public static int add(int a, int b) {
         return a + b;
     }
-    private static int min(int a, int b) {
+    public static int min(int a, int b) {
         return a - b;
     }
-    private static int mul(int a, int b) {
+    public static int mul(int a, int b) {
         return a * b;
     }
-    private static int div(int a, int b) {
+    public static int div(int a, int b) {
+        if(b == 0) try {
+            throw new DivByZeroException("error");
+        } catch (DivByZeroException e) {
+            e.printStackTrace();
+        }
         return a / b;
     }
 }
